@@ -2,10 +2,15 @@
 
 import os
 
-path = ''
+path = 'F://2'
 
-for files in os.listdir(path):
-    a = os.path.join(path, files)
-    for file in os.listdir(a):
-        for file3 in os.listdir(os.path.join(a, file)):
-            print(file3)
+for file_1 in os.listdir(path):
+    a = os.path.join(path, file_1)
+    for file_2 in os.listdir(a):
+        for file_3 in os.listdir(os.path.join(a, file_2)):
+            p = os.path.splitext(file_3)
+            print(p)
+            if p[1] == '.jpg':
+                newname = p[0] + '.png'
+                os.chdir(os.path.join(a, file_2))
+                os.rename(file_3, newname)
